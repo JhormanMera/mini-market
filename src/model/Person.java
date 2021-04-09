@@ -1,11 +1,10 @@
 package model;
 
 public class Person {
-	
-	private String idType;
+	private IdType idType;
 	private int id;
 	
-	public Person(String idType, int id) {
+	public Person(IdType idType, int id) {
 		this.idType=idType;
 		this.id=id;
 	}
@@ -18,11 +17,11 @@ public class Person {
 		this.id = id;
 	}
 
-	public String getIdType() {
+	public IdType getIdType() {
 		return idType;
 	}
 
-	public void setIdType(String idType) {
+	public void setIdType(IdType idType) {
 		this.idType = idType;
 	}
 	
