@@ -7,19 +7,15 @@ import exception.*;
 
 public class Minimarket {
 	private ArrayList <Person> people;
-	private Date date;
-	private SimpleDateFormat objSDFDay;
-	private int day;
 	private int attempsNum;
 
 	public Minimarket() {
-		people = new ArrayList<Person>();
-		objSDFDay= new SimpleDateFormat("dd");
-		date= new Date();
-		this.day= Integer.parseInt(objSDFDay.format(date)); 	
+		people=new ArrayList<>();	
 	}
 
-	public boolean addPerson(String type, int id) throws AgeException,DayException{
+	public boolean addPerson(Date date,String type, int id) throws AgeException,DayException{
+		SimpleDateFormat objSDFDay= new SimpleDateFormat("dd");
+		int day= Integer.parseInt(objSDFDay.format(date)); 	
 		boolean registered =false;
 		String a = Integer.toString(id);
 		String b=a.substring(a.length()-2,a.length()-1);
@@ -31,18 +27,18 @@ public class Minimarket {
 			dateVerf=true;
 		}
 		IdType idType = IdType.valueOf(type);
-		if(dateVerf) {
-			if(idType.equals(IdType.TI)) {
-				attempsNum++;
-				throw new AgeException();
-			}else {
+		if(idType.equals(IdType.TI)) {
+			attempsNum++;
+			throw new AgeException();
+		}else {
+			if(dateVerf) {
 				Person p = new Person(idType,  id);
 				people.add(p);
 				registered =true;
+			}else {
+				attempsNum++;
+				throw new DayException();
 			}
-		}else {
-			attempsNum++;
-			throw new DayException();
 		}
 		return registered;
 	}
@@ -53,5 +49,13 @@ public class Minimarket {
 
 	public void setAttempsNum(int attempsNum) {
 		this.attempsNum = attempsNum;
+	}
+
+	public ArrayList <Person> getPeople() {
+		return people;
+	}
+
+	public void setPeople(ArrayList <Person> people) {
+		this.people = people;
 	}
 }
