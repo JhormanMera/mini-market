@@ -1,5 +1,6 @@
 package model;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +15,7 @@ public class Minimarket {
 	}
 
 	public boolean addPerson(Date date,String type, int id) throws AgeException,DayException{
-		SimpleDateFormat objSDFDay= new SimpleDateFormat("dd");
+		DateFormat objSDFDay= new SimpleDateFormat("dd");
 		int day= Integer.parseInt(objSDFDay.format(date)); 	
 		boolean registered =false;
 		String a = Integer.toString(id);
