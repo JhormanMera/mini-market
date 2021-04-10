@@ -40,7 +40,7 @@ public class MinimarketTest {
 		assertEquals(type, m.getPeople().get(m.getPeople().size()-1).getIdType().toString());
 		assertEquals(id, m.getPeople().get(m.getPeople().size()-1).getId());
 		assertTrue(m.getPeople().size()==4);
-		assertEquals(0,m.getAttempsNum());
+		assertEquals(4,m.getAttempsNum());
 	}
 	@Test
 	public void testAddPerson2() throws ParseException {
@@ -66,7 +66,7 @@ public class MinimarketTest {
 		String type="CC";
 		int id =998456956;
 		DateFormat d = new SimpleDateFormat("dd-MM-yyyy");
-		Date pDate =d.parse("01-03-2021");
+		Date pDate =d.parse("17-08-2021");
 		try {
 			m.addPerson(pDate, type, id);
 			fail("No deberia añadir el registro, tiene que fallar por fecha");

@@ -35,6 +35,7 @@ public class Minimarket {
 			if(dateVerf) {
 				Person p = new Person(idType,  id);
 				people.add(p);
+				attempsNum++;
 				registered =true;
 			}else {
 				attempsNum++;
